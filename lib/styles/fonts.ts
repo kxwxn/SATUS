@@ -1,28 +1,12 @@
-import localFont from 'next/font/local'
+import { Inter } from 'next/font/google'
 
-const mono = localFont({
-  src: [
-    {
-      path: '../../public/fonts/ServerMono/ServerMono-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
+const inter = Inter({
+  subsets: ['latin'],
   display: 'swap',
-  variable: '--next-font-mono',
-  preload: true,
-  adjustFontFallback: 'Arial',
-  fallback: [
-    'ui-monospace',
-    'SFMono-Regular',
-    'Consolas',
-    'Liberation Mono',
-    'Menlo',
-    'monospace',
-  ],
+  variable: '--next-font-sans',
 })
 
-const fonts = [mono]
+const fonts = [inter]
 const fontsVariable = fonts.map((font) => font.variable).join(' ')
 
 export { fontsVariable }

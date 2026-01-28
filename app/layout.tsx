@@ -17,8 +17,8 @@ import AppData from '@/package.json'
 import '@/lib/styles/css/index.css'
 
 const APP_NAME = AppData.name
-const APP_DEFAULT_TITLE = 'Satūs'
-const APP_TITLE_TEMPLATE = '%s - Satūs'
+const APP_DEFAULT_TITLE = 'Project Name'
+const APP_TITLE_TEMPLATE = '%s | Project Name'
 const APP_DESCRIPTION = AppData.description
 const APP_BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? 'https://localhost:3000'
@@ -52,14 +52,6 @@ export const metadata: Metadata = {
     },
     description: APP_DESCRIPTION,
     url: APP_BASE_URL,
-    images: [
-      {
-        url: '/opengraph-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: APP_DEFAULT_TITLE,
-      },
-    ],
     locale: 'en_US',
   },
   twitter: {
@@ -70,9 +62,7 @@ export const metadata: Metadata = {
     },
     description: APP_DESCRIPTION,
   },
-  authors: [
-    { name: 'darkroom.engineering', url: 'https://darkroom.engineering' },
-  ],
+  authors: [],
   other: {
     'fb:app_id': process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || '',
   },
@@ -95,8 +85,6 @@ export default async function Layout({ children }: PropsWithChildren) {
       // NOTE: This is due to the data-theme attribute being set which causes hydration errors
       suppressHydrationWarning
     >
-      {/* this helps to track Satus usage thanks to Wappalyzer */}
-      <Script async>{`window.satusVersion = '${AppData.version}';`}</Script>
       <body>
         {/* Skip link for keyboard navigation accessibility */}
         <Suspense fallback={null}>
